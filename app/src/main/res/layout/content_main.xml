@@ -19,14 +19,105 @@
         android:text="@string/pleasewait" android:id="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/getInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get info"
+            android:onClick="getInfo"
+         />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/peerField"
+            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/connectPeer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="connect peer"
+            android:onClick="connectPeer"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/channelField"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:inputType="text"/>
+
+            <Button
+                android:id="@+id/openChannel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open channel"
+                android:onClick="openChannel"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/sendPaymentField"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:inputType="text"/>
+
+            <Button
+                android:id="@+id/sendPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="send payment"
+                android:onClick="sendPayment"
+                />
+
+        </LinearLayout>
+
+
+        <Switch
+            android:id="@+id/switchCore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Start Bitcoind" />
 
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/switchCore"
-        android:text="@string/switchcoreon"
-        android:layout_centerVertical="true"
+        android:id="@+id/switchLND"
+        android:text="Start LND"
         android:layout_centerHorizontal="true" />
+    </LinearLayout>
 
     <ProgressBar
         style="?android:attr/progressBarStyleLarge"

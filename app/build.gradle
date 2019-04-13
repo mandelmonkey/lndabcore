@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.protobuf'
 
 android {
     packagingOptions {
@@ -38,7 +39,9 @@ android {
         abortOnError true
         disable 'MissingTranslation'
     }
+
 }
+
 
 repositories {
     mavenCentral()
@@ -51,8 +54,38 @@ dependencies {
     implementation 'org.apache.commons:commons-compress:1.18'
     implementation 'wf.bitcoin:JavaBitcoindRpcClient:1.0.0'
     implementation 'com.android.support:support-v4:28.0.0'
-
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    implementation 'io.grpc:grpc-okhttp:1.7.0'
+    implementation 'io.grpc:grpc-protobuf:1.7.0'
+    //implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+    implementation 'io.grpc:grpc-stub:1.7.0'
+    implementation 'javax.annotation:javax.annotation-api:1.2'
+    implementation project(':lndmobile')
+}
+
+
+def grpc_version = "1.3.0"
+
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.1.0"
+    }
+    plugins {
+        javalite {
+            artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0"
+        }
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:$grpc_version"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                javalite {}
+            }
+        }
+    }
 }
